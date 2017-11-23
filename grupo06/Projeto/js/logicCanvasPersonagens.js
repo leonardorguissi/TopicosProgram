@@ -49,7 +49,7 @@ var m = 0;
 var auxSegundos = 0;
 
 //Kills
-var kills = 99;
+var kills = 0;
 var verificador = s;
 
 //Vida
