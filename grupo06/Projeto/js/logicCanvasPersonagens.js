@@ -22,7 +22,7 @@ var dxInimigo = 0.001;      //variavel controle de distancia viajada pelos inimi
 var posicao = 0;            //Indicador da posição atual do personagem
 var NUM_POSICOES = 8;      //Quantidade de imagens que compõem o movimento (neste caso possuem todos os movimentos, mas nem todos são usados)
 var personagem = "Morty";   //Personagem inicial
-var posicaoBloquados = [];
+var posicaoBloqueados = [];
 
 var xProjetil = [];                     //posição horizontal do projetil 
 var yProjetil = [];                     //posição vertical do projetil
@@ -47,7 +47,7 @@ tile6 = [];
 
 for(i = 0; i < 4; i++){
 	tile6.push(new Image);
-	posicaoBloquados.push(0);
+	posicaoBloqueados.push(0);
 }
 
 tile6[0].src = "images/SummerJogavel.png";
@@ -172,14 +172,16 @@ function VerificaTiroCerto() {
 
 //Libera o personagem principal(troca a imagem do botão) quando chega a certa quantidade de pontos
 function LiberaPersonagem(kills) {
-    if (kills >= 10)
-        posicaoBloquados[0] = 1;
-    if (kills >= 30)
-        posicaoBloquados[1] = 1;
+    if (kills >= 10){
+		console.log("Summer liberada");
+        posicaoBloqueados[0] = 1;
+	}
+    if (kills >= 30){
+        posicaoBloqueados[1] = 1;
     if (kills >= 50)
-        posicaoBloquados[2] = 1;
+        posicaoBloqueados[2] = 1;
     if (kills >= 100)
-        posicaoBloquados[3] = 1;
+        posicaoBloqueados[3] = 1;
 }
 
 //Troca o personagem principal quando chega a certa quantidade de pontos e o botão é clicado
@@ -404,7 +406,7 @@ function Atualizar() {
 	
 	for(i = 0; i < 4; i++){
 		console.log(i+" e incrementa: "+teste);
-		ctx.drawImage(tile6[i],posicaoBloquados[i]*90,0,90,90, (canvas.width*teste), (canvas.height*0.013), (canvas.width*0.0537), (canvas.width*0.0537));
+		ctx.drawImage(tile6[i],posicaoBloqueados[i]*90,0,90,90, (canvas.width*teste), (canvas.height*0.013), (canvas.width*0.0537), (canvas.width*0.0537));
 		teste = teste + 0.076;
 
 	}
@@ -485,7 +487,7 @@ function Iniciar() {
 	
 	for(i = 0; i < 4; i++){
 		console.log(i);
-		ctx.drawImage(tile6[i],posicaoBloquados[i]*90,0,90,90, (canvas.width*0.3), (canvas.width*0.3), (canvas.width*0.0537), (canvas.height*0.0916));
+		ctx.drawImage(tile6[i],posicaoBloqueados[i]*90,0,90,90, (canvas.width*0.3), (canvas.width*0.3), (canvas.width*0.0537), (canvas.height*0.0916));
 	}
     
 
