@@ -404,8 +404,8 @@ function Atualizar() {
 	var teste = 0.355;
 	
 	
-	for(i = 0; i < 4; i++){
-		ctx.drawImage(tile6[i],posicaoBloqueados[i]*90,0,90,90, (canvas.width*teste), (canvas.height*0.013), (canvas.width*0.0537), (canvas.width*0.0537));
+	for(j = 0; j < 4; j++){
+		ctx.drawImage(tile6[j],posicaoBloqueados[j]*90,0,90,90, (canvas.width*teste), (canvas.height*0.013), (canvas.width*0.0537), (canvas.width*0.0537));
 		teste = teste + 0.076;
 
 	}
@@ -484,9 +484,9 @@ function Iniciar(){
 
     ctx.drawImage(tile1,5*79,0,79,109, (x * canvas.width) , (canvas.height * y), (canvas.width * 0.074), (canvas.height * 0.1816));
 	
-	for(i = 0; i < 4; i++){
-		console.log(i);
-		ctx.drawImage(tile6[i],posicaoBloqueados[i]*90,0,90,90, (canvas.width*0.3), (canvas.width*0.3), (canvas.width*0.0537), (canvas.height*0.0916));
+	for(j = 0; j < 4; j++){
+		console.log(j);
+		ctx.drawImage(tile6[j],posicaoBloqueados[j]*90,0,90,90, (canvas.width*0.3), (canvas.width*0.3), (canvas.width*0.0537), (canvas.height*0.0916));
 	}
     
     //Chama o atualizar pela primeira vez
