@@ -164,7 +164,6 @@ function VerificaTiroCerto() {
                     k--;
                 }
                 document.getElementById("pontosNum").innerHTML = kills;
-                LiberaPersonagem(kills);
             }
         }
     }
@@ -396,8 +395,12 @@ function Atualizar() {
 
     //Verifica o tiro
     VerificaTiroCerto();
+	
+	LiberaPersonagem(kills);
+
 
 	var teste = 0.355;
+	
 	
 	for(i = 0; i < 4; i++){
 		console.log(i+" e incrementa: "+teste);
