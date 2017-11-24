@@ -43,11 +43,14 @@ tile3.src = "images/projetil0.png";
 var tile4 = [];     //Imagem que será carregada e desenhada na canvas (Inimigos)
 var tile5 = [];     //Imagem que será carregada e desenhada na canvas (Barra de vidas)
 
+var flagLibera = [];
+
 tile6 = [];
 
 for(i = 0; i < 4; i++){
 	tile6.push(new Image);
 	posicaoBloqueados.push(0);
+	flagLibera.push(0);
 }
 
 tile6[0].src = "images/SummerJogavel.png";
@@ -172,16 +175,26 @@ function VerificaTiroCerto() {
 
 //Libera o personagem principal(troca a imagem do botão) quando chega a certa quantidade de pontos
 function LiberaPersonagem(kills) {
-    if (kills >= 10){
+    if (kills == 10 && flagLibera[0] == 0){
 		console.log("Summer liberada");
         posicaoBloqueados[0] = 1;
+		flagLibera[0] = 1;
 	}
-    if (kills >= 30)
+    if (kills == 30 && flagLibera[1] == 0){
+		console.log("Jaguar liberado");
+		flagLibera[1] = 1;
         posicaoBloqueados[1] = 1;
-    if (kills >= 50)
+	}
+    if (kills == 50 && flagLibera[2] == 0){
+		console.log("Wizard liberado");
+		flagLibera[2] = 1;
         posicaoBloqueados[2] = 1;
-    if (kills >= 100)
+	}
+    if (kills == 100 && flagLibera[3] == 0){
+		console.log("Pickle liberado");
+		flagLibera[3] = 1;
         posicaoBloqueados[3] = 1;
+	}
 }
 
 //Troca o personagem principal quando chega a certa quantidade de pontos e o botão é clicado
