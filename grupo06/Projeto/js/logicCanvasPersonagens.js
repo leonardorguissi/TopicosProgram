@@ -22,6 +22,7 @@ var dxInimigo = 0.001;      //variavel controle de distancia viajada pelos inimi
 var posicao = 0;            //Indicador da posição atual do personagem
 var NUM_POSICOES = 8;      //Quantidade de imagens que compõem o movimento (neste caso possuem todos os movimentos, mas nem todos são usados)
 var personagem = "Morty";   //Personagem inicial
+var posicaoBloquados = [];
 
 var xProjetil = [];                     //posição horizontal do projetil 
 var yProjetil = [];                     //posição vertical do projetil
@@ -41,6 +42,21 @@ var tile3 = new Image();    //Imagem que será carregada e desenhada na canvas (
 tile3.src = "images/projetil0.png";
 var tile4 = [];     //Imagem que será carregada e desenhada na canvas (Inimigos)
 var tile5 = [];     //Imagem que será carregada e desenhada na canvas (Barra de vidas)
+
+tile6 = [];
+
+for(i = 0; i < 4; i++){
+	tile6.push(new Image);
+	posicaoBloquados.push(0);
+}
+
+tile6[0].src = "images/SummerJogavel.png";
+tile6[1].src = "images/JaguarJogavel.png";
+tile6[2].src = "images/WizardJogavel.png";
+tile6[3].src = "images/PickleJogavel.png";
+
+
+
 
 //Tempo
 var intervalo;
@@ -158,13 +174,13 @@ function VerificaTiroCerto() {
 //Libera o personagem principal(troca a imagem do botão) quando chega a certa quantidade de pontos
 function LiberaPersonagem(kills) {
     if (kills >= 10)
-        document.getElementById("jogavelSummer").style.backgroundImage = "url('images/jogavelSummer.png')";
+        posicaoBloquados[0] = 1;
     if (kills >= 30)
-        document.getElementById("jogavelJaguar").style.backgroundImage = "url('images/jogavelJaguar.png')";
+        posicaoBloquados[1] = 1;
     if (kills >= 50)
-        document.getElementById("jogavelWizard").style.backgroundImage = "url('images/jogavelWizard.png')";
+        posicaoBloquados[2] = 1;
     if (kills >= 100)
-        document.getElementById("jogavelPickle").style.backgroundImage = "url('images/jogavelPickle.png')";
+        posicaoBloquados[3] = 1;
 }
 
 //Troca o personagem principal quando chega a certa quantidade de pontos e o botão é clicado
@@ -381,6 +397,16 @@ function Atualizar() {
     //Verifica o tiro
     VerificaTiroCerto();
 
+	var teste = 0.355;
+	
+	for(i = 0; i < 4; i++){
+		console.log(i+" e incrementa: "+teste);
+		ctx.drawImage(tile6[i],posicaoBloquados[i]*90,0,90,90, (canvas.width*teste), (canvas.height*0.013), (canvas.width*0.0537), (canvas.width*0.0537));
+		teste = teste + 0.076;
+
+	}
+    
+	
     //Loop de atualização
     window.requestAnimationFrame(Atualizar);
 }
@@ -453,8 +479,14 @@ function Iniciar() {
     ctx = canvas.getContext("2d");
 
     ctx.drawImage(tile1,5*79,0,79,109, (x * canvas.width) , (canvas.height * y), (canvas.width * 0.074), (canvas.height * 0.1816));
+	
+	for(i = 0; i < 4; i++){
+		console.log(i);
+		ctx.drawImage(tile6[i],posicaoBloquados[i]*90,0,90,90, (canvas.width*0.3), (canvas.width*0.3), (canvas.width*0.0537), (canvas.height*0.0916));
+	}
     
 
     //Chama o atualizar pela primeira vez
     window.requestAnimationFrame(Atualizar);
 }
+
