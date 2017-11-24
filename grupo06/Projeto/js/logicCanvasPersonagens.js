@@ -176,7 +176,7 @@ function LiberaPersonagem(kills) {
 		console.log("Summer liberada");
         posicaoBloqueados[0] = 1;
 	}
-    if (kills >= 30){
+    if (kills >= 30)
         posicaoBloqueados[1] = 1;
     if (kills >= 50)
         posicaoBloqueados[2] = 1;
@@ -405,7 +405,6 @@ function Atualizar() {
 	
 	
 	for(i = 0; i < 4; i++){
-		console.log(i+" e incrementa: "+teste);
 		ctx.drawImage(tile6[i],posicaoBloqueados[i]*90,0,90,90, (canvas.width*teste), (canvas.height*0.013), (canvas.width*0.0537), (canvas.width*0.0537));
 		teste = teste + 0.076;
 
@@ -416,7 +415,7 @@ function Atualizar() {
     window.requestAnimationFrame(Atualizar);
 }
 
-function Iniciar() {
+function Iniciar(){
 
     tile1.src = "images/Morty.png";
     tile2.src = "images/cenario.png";
@@ -490,8 +489,8 @@ function Iniciar() {
 		ctx.drawImage(tile6[i],posicaoBloqueados[i]*90,0,90,90, (canvas.width*0.3), (canvas.width*0.3), (canvas.width*0.0537), (canvas.height*0.0916));
 	}
     
-
     //Chama o atualizar pela primeira vez
     window.requestAnimationFrame(Atualizar);
 }
+
 
