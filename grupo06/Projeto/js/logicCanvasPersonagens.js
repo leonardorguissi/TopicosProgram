@@ -1,47 +1,46 @@
 /*
     Leonardo Rodrigues Guissi               RA: 15251275
     Leonardo Borges Bergamo                 RA: 15108244
-	Matheus Augusto Cremonez Guimar√£es		RA: 15004336
-
+	Matheus Augusto Cremonez Guimar„es		RA: 15004336
 */
 
-//Vari√°veis
+//Vari·veis
 
 var i, j;
 
 var canvas;                 //o elemento canvas sobre o qual desenharemos
-var ctx;                    //o "contexto" da canvas que ser√° utilizado (2D ou 3D)
-var dy = 0.0083;            //a taxa de varia√ß√£o (velocidade) vertical do personagem
+var ctx;                    //o "contexto" da canvas que ser· utilizado (2D ou 3D)
+var dy = 0.0083;            //a taxa de variaÁ„o (velocidade) vertical do personagem
 var dxProjetil = 0.005;         // taxa de variacao do projetil
-var x = 0.8903;             //posi√ß√£o horizontal do personagem (valor inicial)
-var y = 0.0917;             //posi√ß√£o vertical do personagem (valor inicial)
+var x = 0.8903;             //posiÁ„o horizontal do personagem (valor inicial)
+var y = 0.0917;             //posiÁ„o vertical do personagem (valor inicial)
 
 var spawn = 4;              //variavel controle de intervalo de spawn de inimigos
 var dxInimigo = 0.001;      //variavel controle de distancia viajada pelos inimigos a cada frame                    
 
-var posicao = 0;            //Indicador da posi√ß√£o atual do personagem
-var NUM_POSICOES = 8;      //Quantidade de imagens que comp√µem o movimento (neste caso possuem todos os movimentos, mas nem todos s√£o usados)
+var posicao = 0;            //Indicador da posiÁ„o atual do personagem
+var NUM_POSICOES = 8;      //Quantidade de imagens que compıem o movimento (neste caso possuem todos os movimentos, mas nem todos s„o usados)
 var personagem = "Morty";   //Personagem inicial
 var posicaoBloqueados = [];
 
-var xProjetil = [];                     //posi√ß√£o horizontal do projetil 
-var yProjetil = [];                     //posi√ß√£o vertical do projetil
+var xProjetil = [];                     //posiÁ„o horizontal do projetil 
+var yProjetil = [];                     //posiÁ„o vertical do projetil
 
-var contadorFrameInimigos = [];     //contador para esperar mudan√ßa de imagem dos inimigos
-var contadorJogavel = 0;            // contador para esperar mudan√ßa de imagem do personagem jogavel  
+var contadorFrameInimigos = [];     //contador para esperar mudanÁa de imagem dos inimigos
+var contadorJogavel = 0;            // contador para esperar mudanÁa de imagem do personagem jogavel  
 
-var xInimigo = [];              //posi√ß√£o horizontal do inimigo 
-var yInimigo = [];              //posi√ß√£o vertical do inimigo
-var personagemInimigo = [];     //Personagens inimigos que ser√£o gerados
+var xInimigo = [];              //posiÁ„o horizontal do inimigo 
+var yInimigo = [];              //posiÁ„o vertical do inimigo
+var personagemInimigo = [];     //Personagens inimigos que ser„o gerados
 var vidaInimigo = [];           //Vida inimigo
-var posicaoInimigo = [];        //Indicador da posi√ß√£o atual da imagem do inimigo
+var posicaoInimigo = [];        //Indicador da posiÁ„o atual da imagem do inimigo
 
-var tile1 = new Image();    //Imagem que ser√° carregada e desenhada na canvas (Personagem Principal)
-var tile2 = new Image();    //Imagem que ser√° carregada e desenhada na canvas (Cen√°rio)
-var tile3 = new Image();    //Imagem que ser√° carregada e desenhada na canvas (Projetil)
+var tile1 = new Image();    //Imagem que ser· carregada e desenhada na canvas (Personagem Principal)
+var tile2 = new Image();    //Imagem que ser· carregada e desenhada na canvas (Cen·rio)
+var tile3 = new Image();    //Imagem que ser· carregada e desenhada na canvas (Projetil)
 tile3.src = "images/projetil0.png";
-var tile4 = [];     //Imagem que ser√° carregada e desenhada na canvas (Inimigos)
-var tile5 = [];     //Imagem que ser√° carregada e desenhada na canvas (Barra de vidas)
+var tile4 = [];     //Imagem que ser· carregada e desenhada na canvas (Inimigos)
+var tile5 = [];     //Imagem que ser· carregada e desenhada na canvas (Barra de vidas)
 
 var flagLibera = [];
 
@@ -75,7 +74,7 @@ var verificador = s;
 var contGameOver = 0;
 var posicaoVida = 3;
 
-//Fun√ß√µes
+//FunÁıes
 
 function KeyDown(evt) {
     switch (evt.keyCode) {
@@ -128,7 +127,7 @@ function KeyUp(evt) {
     posicao = 8;
     ctx.drawImage(tile1,posicao*79,0,79,109, (x * canvas.width) , (canvas.height * y), (canvas.width * 0.074), (canvas.height * 0.1816));
     switch (evt.keyCode) {
-        case 32: /* barra de espa√ßo */
+        case 32: /* barra de espaÁo */
             xProjetil.push(x - 0.004);
             yProjetil.push(y + 0.067);
             break;
@@ -139,7 +138,7 @@ function KeyUp(evt) {
 function VerificaTiroCerto() {
 
     //Funcao que verifica se o tiro acertou no inimigo.
-    //Comparamos a posicao em x da bola com a posicao em x do inimigo, levando em considera√ß√£o, todo o corpo
+    //Comparamos a posicao em x da bola com a posicao em x do inimigo, levando em consideraÁ„o, todo o corpo
     //do inimigo (Parte do Y).
 
     var k = 0;
@@ -173,31 +172,31 @@ function VerificaTiroCerto() {
 
 }
 
-//Libera o personagem principal(troca a imagem do bot√£o) quando chega a certa quantidade de pontos
+//Libera o personagem principal(troca a imagem do bot„o) quando chega a certa quantidade de pontos
 function LiberaPersonagem(kills) {
     if (kills == 10 && flagLibera[0] == 0){
-		console.log("Summer liberada");
+		alert("Summer liberada");
         posicaoBloqueados[0] = 1;
 		flagLibera[0] = 1;
 	}
     if (kills == 30 && flagLibera[1] == 0){
-		console.log("Jaguar liberado");
+		alert("Jaguar liberado");
 		flagLibera[1] = 1;
         posicaoBloqueados[1] = 1;
 	}
     if (kills == 50 && flagLibera[2] == 0){
-		console.log("Wizard liberado");
+		alert("Wizard Morty liberado");
 		flagLibera[2] = 1;
         posicaoBloqueados[2] = 1;
 	}
     if (kills == 100 && flagLibera[3] == 0){
-		console.log("Pickle liberado");
+		alert("Pickle Rick liberado");
 		flagLibera[3] = 1;
         posicaoBloqueados[3] = 1;
 	}
 }
 
-//Troca o personagem principal quando chega a certa quantidade de pontos e o bot√£o √© clicado
+//Troca o personagem principal quando chega a certa quantidade de pontos e o bot„o È clicado
 function trocaPersonagem(nome, pos) {
 
     if (nome == 'Morty') {
@@ -243,8 +242,8 @@ function trocaPersonagem(nome, pos) {
 }
 
 function tempo() {
-    //a fun√ß√£o setInterval executa uma fun√ß√£o (primeiro parametro) a cada determinado intervalo de tempo em ms (segundo par√¢metro)
-    //pelo segundo parmetro ser 1000ms, ou seja, 1s, temos a sensa√ß√£o de que √© o tempo "correndo"
+    //a funÁ„o setInterval executa uma funÁ„o (primeiro parametro) a cada determinado intervalo de tempo em ms (segundo par‚metro)
+    //pelo segundo parmetro ser 1000ms, ou seja, 1s, temos a sensaÁ„o de que È o tempo "correndo"
     intervalo = window.setInterval(function () {
         if (s == 60) { m++; s = 0; }
         if (s < 10) document.getElementById("segundo").innerHTML = "0" + s + "s"; else document.getElementById("segundo").innerHTML = s + "s";
@@ -286,7 +285,7 @@ function geraInimigo() {
 
     yInimigo.push(auxiliar / canvas.height);
 
-    //Utilizamos o JSON para pegar as informa√ß√µes dos inimigos, como nome e vida
+    //Utilizamos o JSON para pegar as informaÁıes dos inimigos, como nome e vida
     var f = JSON.parse(inimigos);
     var indice = Math.floor((Math.random() * 11));
     personagemInimigo.push(f[indice].nome);
@@ -327,7 +326,7 @@ function DesenharInimigos(inimigos) {
         contadorFrameInimigos[j] = 0;
     }
 
-    //Como s√£o 4 imagens diferentes para o inimigo, fica em um loop circular para a sensa√ß√£o de estar andando
+    //Como s„o 4 imagens diferentes para o inimigo, fica em um loop circular para a sensaÁ„o de estar andando
     if (posicaoInimigo[j] > 3) {
         posicaoInimigo[j] = 0;
     }
@@ -368,7 +367,7 @@ function LimparTela() {
 //Gerenciador do Jogo
 function Atualizar() {
 
-    //Quest√£o de responsividade, toda vez que h√° uma mudan√ßa de tamanho de tela, nosso canvas acompanha
+    //Quest„o de responsividade, toda vez que h· uma mudanÁa de tamanho de tela, nosso canvas acompanha
     //este tamanho.
     canvas.width = window.innerWidth * 0.7811;
     canvas.height = window.innerHeight * 0.9419;
@@ -388,7 +387,7 @@ function Atualizar() {
     for (i = 0; i < xProjetil.length; i++)
         DesenharProjetil();
 
-    //Aumento de velocidade dos inimigos a cada 30 segundos, al√©m da quantidade de inimigos que nascem    
+    //Aumento de velocidade dos inimigos a cada 30 segundos, alÈm da quantidade de inimigos que nascem    
     if (s % 30 == 0) {
         if (spawn > 0.5) {
             spawn = spawn - 0.5;
@@ -402,7 +401,7 @@ function Atualizar() {
         verificador = auxSegundos;
     }
 
-    //Desenha Inimigo (Apenas para quest√£o de profundidade)
+    //Desenha Inimigo (Apenas para quest„o de profundidade)
     for (j = 0; j < xInimigo.length; j++) {
         if (yInimigo[j] >= y)
             DesenharInimigos(personagemInimigo[j]);
@@ -424,7 +423,7 @@ function Atualizar() {
 	}
     
 	
-    //Loop de atualiza√ß√£o
+    //Loop de atualizaÁ„o
     window.requestAnimationFrame(Atualizar);
 }
 
@@ -436,15 +435,13 @@ function Iniciar(){
     var clima;
 
     /* Cidades para testes:
-
     Recife: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Recife%2C%20SP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
-    S√£o Paulo: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Sao%20Paulo%2C%20SP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
-    Florian√≥polis: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Florianopolis%2C%20SP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
-    Macap√°: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Macapa%2C%20AP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+    S„o Paulo: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Sao%20Paulo%2C%20SP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+    FlorianÛpolis: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Florianopolis%2C%20SP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+    Macap·: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Macapa%2C%20AP%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
     Houston - Texas: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22houston%2C%20US%20%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
-    Paris - Fran√ßa: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22paris%2C%20%20%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+    Paris - FranÁa: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22paris%2C%20%20%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
     Oslo - Noruega: https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22oslo%2C%20%20%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
-
     */
 
     //API do weather yahoo, onde recuperamos o clima de Campinas
@@ -452,7 +449,7 @@ function Iniciar(){
 
         clima = data.query.results.channel.item.condition.text;
 
-        //Dependendo do clima, tera um cen√°rio especifico
+        //Dependendo do clima, tera um cen·rio especifico
         if (clima === "Sunny" || clima === "Mostly Sunny" || clima === "Partly Sunny") {
             console.log("Sunny1: " + clima);
             tile2.src = "images/cenarioSunny.png";
@@ -505,5 +502,3 @@ function Iniciar(){
     //Chama o atualizar pela primeira vez
     window.requestAnimationFrame(Atualizar);
 }
-
-
