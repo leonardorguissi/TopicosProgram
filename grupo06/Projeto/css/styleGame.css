@@ -1,7 +1,7 @@
 /*
     Leonardo Rodrigues Guissi               RA: 15251275
     Leonardo Borges Bergamo                 RA: 15108244
-	Matheus Augusto Cremonez Guimar√£es		RA: 15004336
+	Matheus Augusto Cremonez Guimar„es		RA: 15004336
 
 */
 
@@ -96,7 +96,6 @@ body{
     float: left;
     margin-top: 0.9vw;
     margin-left: 2vw;
-    background-image: url('../images/JogavelSummerBloqueada.png');
     background-repeat: no-repeat;
     background-size: 4.4vw 4.4vw;
     background-position: center;
@@ -109,7 +108,6 @@ body{
     float: left;
     margin-top: 0.9vw;
     margin-left: 2vw;
-    background-image: url('../images/JogavelJaguarBloqueado.png');
     background-repeat: no-repeat;
     background-size: 4.4vw 4.4vw;
     background-position: center;
@@ -123,7 +121,6 @@ body{
     float: left;
     margin-top: 0.9vw;
     margin-left: 2vw;
-    background-image: url('../images/JogavelWizardBloqueado.png');
     background-repeat: no-repeat;
     background-size: 4.4vw 4.4vw;
     background-position: center;
@@ -136,7 +133,6 @@ body{
     float: left;
     margin-top: 0.9vw;
     margin-left: 2vw;
-    background-image: url('../images/JogavelPickleBloqueado.png');
     background-repeat: no-repeat;
     background-size: 4.4vw 4.4vw;
     background-position: center;
